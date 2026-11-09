@@ -12,20 +12,26 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overfl
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
 .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--coral);color:#fff;text-decoration:none;font-weight:600;padding:12px 24px;border-radius:12px;font-size:15px;transition:.2s;border:none;cursor:pointer}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,90,60,.3)}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-header{position:absolute;top:0;left:0;right:0;z-index:10;padding:20px 0}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+header{position:absolute;top:0;left:0;right:0;z-index:100;padding:20px 0}
 .nav{display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:22px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
-/* НЕОНОВЫЙ ЛОГОТИП */
-.logo i{background:var(--coral);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;box-shadow:0 0 12px var(--neon), inset 0 0 4px rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.2)}
+
+/* === ЛОГОТИП: ОДНА ЦЕЛЬНАЯ КАРТИНКА === */
+.logo-img{height:32px;width:auto;display:block}
+/* ====================================== */
+
 .actions{display:flex;gap:12px}
-.hero-map{height:65vh;min-height:450px;background:linear-gradient(135deg,#1E293B 0%,#0F172A 100%);position:relative;overflow:hidden;display:flex;align-items:end;justify-content:center;padding-bottom:40px}
-/* СЕТКА ДОРОГ (CSS SVG) */
-.grid-lines{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.8}
-.pin{position:absolute;width:36px;height:36px;background:var(--coral);border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 12px rgba(0,0,0,.3), 0 0 15px var(--neon);display:flex;align-items:center;justify-content:center;z-index:5;animation:bob 3s infinite ease-in-out}
-.pin span{transform:rotate(45deg);color:#fff;font-size:16px;font-weight:700}
+
+/* === КАРТА: РЕАЛЬНЫЕ УЛИЦЫ ЧЕРЕЗ LEAFLET === */
+.hero-map{height:65vh;min-height:450px;width:100%;position:relative;background:#0F172A;}
+#map{width:100%;height:100%}
+/* Пины поверх карты */
+.pin-marker{background:var(--coral);border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 12px rgba(0,0,0,.3), 0 0 15px var(--neon);display:flex;align-items:center;justify-content:center;width:36px;height:36px;animation:bob 3s infinite ease-in-out}
+.pin-marker span{transform:rotate(45deg);color:#fff;font-size:16px;font-weight:700}
 @keyframes bob{0%,100%{transform:rotate(-45deg) translateY(0)}50%{transform:rotate(-45deg) translateY(-5px)}}
-.search-panel{width:min(95%,640px);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-radius:24px;padding:24px;box-shadow:0 20px 40px rgba(0,0,0,.15);z-index:10;position:relative;margin-top:-60px}
+/* ================================ */
+
+.search-panel{width:min(95%,640px);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-radius:24px;padding:24px;box-shadow:0 20px 40px rgba(0,0,0,.15);z-index:100;position:relative;margin-top:-60px}
 .tabs{display:flex;gap:8px;margin-bottom:20px;background:var(--bg);padding:4px;border-radius:12px}
 .tab{flex:1;text-align:center;font-weight:600;font-size:14px;color:var(--mut);cursor:pointer;padding:10px;border-radius:8px;transition:.2s}
 .tab.active{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.05)}
@@ -73,7 +79,8 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px;bord
 </head>
 <body>
 <header><div class="wrap nav">
-<a class="logo" href="#">Плюс Один<i>+1</i></a>
+<!-- ЛОГОТИП В ШАПКЕ: ОДИН ФАЙЛ -->
+<img class="logo-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAxMDAgNDgiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iNDgiIGZpbGw9Im5vbmUiLz48dGV4dCB4PSIwIiB5PSIzMiIgZm9udC1mYW1pbHk9IkludGVyLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iLTEuNSI+UGx1cyBPbmU8L3RleHQ+PGNpcmNsZSBjeD0iOTQiIGN5PSIyNCIgcj0iMTIiIGZpbGw9IiNGRjVBM0MiLz48dGV4dCB4PSI5NCIgeT0iMjkiIGZvbnQtZmFtaWx5PSJJbnRlciwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+KzE8L3RleHQ+PC9zdmc+" alt="Плюс Один">
 <div class="actions">
 <a class="btn ghost" href="#host">Стать хостом</a>
 <a class="btn" href="#login">Войти</a>
@@ -81,12 +88,7 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px;bord
 </div></header>
 
 <div class="hero-map">
-<div class="grid-lines"></div>
-<!-- Пины хостов -->
-<div class="pin" style="top:25%;left:20%"><span>👩</span></div>
-<div class="pin" style="top:45%;left:65%;animation-delay:.5s"><span>🧔</span></div>
-<div class="pin" style="top:60%;left:35%;animation-delay:1s"><span>👨</span></div>
-<div class="pin" style="top:30%;left:80%;animation-delay:1.5s"><span>👵</span></div>
+<div id="map"></div>
 </div>
 
 <section class="section"><div class="wrap">
@@ -165,8 +167,9 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px;bord
 <footer><div class="wrap">
 <div class="footer-grid">
 <div class="fcol">
-<a class="logo" href="#" style="color:#fff;margin-bottom:16px">Плюс Один<i>+1</i></a>
-<p style="color:#94A3B8;font-size:15px;line-height:1.6">Сервис платонических компаньонов. Найди своего человека для любых планов.</p>
+<!-- ТОТ ЖЕ ЛОГОТИП В ФУТЕРЕ -->
+<img class="logo-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAxMDAgNDgiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iNDgiIGZpbGw9Im5vbmUiLz48dGV4dCB4PSIwIiB5PSIzMiIgZm9udC1mYW1pbHk9IkludGVyLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjIyIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjZmZmZmZmIiBsZXR0ZXItc3BhY2luZz0iLTEuNSI+UGx1cyBPbmU8L3RleHQ+PGNpcmNsZSBjeD0iOTQiIGN5PSIyNCIgcj0iMTIiIGZpbGw9IiNGRjVBM0MiLz48dGV4dCB4PSI5NCIgeT0iMjkiIGZvbnQtZmFtaWx5PSJJbnRlciwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+KzE8L3RleHQ+PC9zdmc+" alt="Плюс Один">
+<p style="color:#94A3B8;font-size:15px;line-height:1.6;margin-top:16px">Сервис платонических компаньонов. Найди своего человека для любых планов.</p>
 </div>
 <div class="fcol">
 <h4>Компания</h4>
@@ -183,5 +186,27 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px;bord
 </div>
 <div class="copy">© 2026 Плюс Один · Екатеринбург · Сделано с любовью</div>
 </div></footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Инициализация карты Екатеринбурга
+var map = L.map('map', {zoomControl:false}).setView([56.8389, 60.6057], 13);
+
+// Темный слой карты (CartoDB Dark Matter) - это реальные улицы!
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+}).addTo(map);
+
+// Добавляем пины хостов
+function addPin(lat, lng, emoji) {
+    var icon = L.divIcon({className:'', html:'<div class="pin-marker"><span>'+emoji+'</span></div>', iconSize:[36,36]});
+    L.marker([lat,lng],{icon:icon}).addTo(map);
+}
+addPin(56.845, 60.610, '👩'); // Алина
+addPin(56.835, 60.620, '🧔'); // Павел
+addPin(56.840, 60.590, '👨'); // Игорь
+addPin(56.850, 60.630, '👵'); // Бабушка
+</script>
 </body>
 </html>
