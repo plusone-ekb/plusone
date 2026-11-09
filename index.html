@@ -4,12 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Плюс Один — компаньон для любых планов | Екатеринбург</title>
+<meta name="description" content="Проверенные компаньоны в Екатеринбурге: шоппинг, мероприятия, животные, спорт. Платонически и безопасно.">
+<meta property="og:title" content="Плюс Один — компаньон для любых планов">
+<meta property="og:description" content="Проверенные компаньоны в Екатеринбурге: шоппинг, мероприятия, животные, спорт. Платонически и безопасно.">
+<meta property="og:type" content="website">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%23FF5A3C"/><text x="32" y="43" font-size="28" font-weight="700" font-family="Arial" fill="%23fff" text-anchor="middle">+1</text></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fff;--bg2:#F6F7F9;--ink:#101828;--mut:#667085;--line:#E7EAF0;--coral:#FF5A3C;--soft:#FFF1EC;--green:#12B76A}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;overflow-x:hidden}
-body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%;padding-bottom:78px}
 .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 4%}
 button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
 .btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:14px;font-size:15px}
@@ -31,15 +36,28 @@ header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid 
 .menu a{font-size:14px;font-weight:600;color:var(--mut)}
 .acts .ghost{display:inline-block}
 .city{display:inline-block}
+.bottombar{display:none}
+body{padding-bottom:0}
 }
 .hero{padding:34px 0 6px}
 h1{font-size:clamp(26px,7.5vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
 h1 span{color:var(--coral)}
-.lead{color:var(--mut);margin:12px 0 20px;font-size:15.5px;line-height:1.5}
+.lead{color:var(--mut);margin:12px 0 16px;font-size:15.5px;line-height:1.5}
+.stickers{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px}
+.stick{background:#fff;border:1px solid var(--line);border-radius:16px;padding:9px 14px;font-size:13px;font-weight:600;box-shadow:0 6px 16px rgba(16,24,40,.06);transform:rotate(-1.5deg)}
+.stick:nth-child(2){transform:rotate(1.2deg)}
+.stick:nth-child(3){transform:rotate(-.8deg)}
+.stick em{font-style:normal;margin-right:6px}
 .search{display:flex;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:6px;box-shadow:0 8px 24px rgba(16,24,40,.06)}
 .search input{flex:1;min-width:0;border:0;outline:0;font:inherit;padding:12px 14px;font-size:15px;background:none;color:var(--ink)}
 .trust{display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0 6px;font-size:12.5px;color:var(--mut)}
 .trust b{color:var(--green)}
+.stats{display:flex;flex-wrap:wrap;gap:12px 24px;margin:16px 0 4px}
+.stat b{display:block;font-size:20px;font-weight:800}
+.stat span{font-size:11.5px;color:var(--mut)}
+.live{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mut);margin-top:12px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite;flex:none}
+@keyframes pulse{50%{opacity:.35}}
 .cats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,76px),1fr));padding:16px 0 6px}
 .cat{text-align:center;cursor:pointer}
 .cat .ic{width:60px;height:60px;border-radius:20px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 7px;transition:.15s}
@@ -55,10 +73,12 @@ h2{font-size:clamp(20px,5vw,30px);font-weight:800;letter-spacing:-.01em}
 .hosts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
 .hcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 16px rgba(16,24,40,.04)}
 .top{display:flex;gap:12px;align-items:center}
-.ava{width:52px;height:52px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:24px;flex:none}
+.ava{width:52px;height:52px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:24px;flex:none;position:relative}
+.ava.on::after{content:"";position:absolute;right:1px;bottom:1px;width:12px;height:12px;border-radius:50%;background:var(--green);border:2px solid #fff}
 .hcard h3{font-size:15.5px}
 .meta{font-size:12.5px;color:var(--mut);margin-top:2px}
 .badge{display:inline-block;font-size:10.5px;font-weight:700;color:var(--green);background:#E8F7EF;padding:3px 8px;border-radius:999px;margin-top:4px}
+.resp{display:block;font-size:11.5px;color:var(--green);font-weight:700;margin-top:4px}
 .stars{font-size:13px;font-weight:800;margin-top:10px}
 .stars em{font-style:normal;color:var(--mut);font-weight:500}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
@@ -66,6 +86,7 @@ h2{font-size:clamp(20px,5vw,30px);font-weight:800;letter-spacing:-.01em}
 .price{font-weight:800;font-size:15px}
 .price small{color:var(--mut);font-weight:500;font-size:12px}
 .hcard .btn{width:100%;text-align:center;margin-top:12px;padding:11px}
+.hnote{font-size:12px;color:var(--mut);margin-top:12px}
 .gray{background:var(--bg2)}
 .steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
 .step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
@@ -84,10 +105,17 @@ h2{font-size:clamp(20px,5vw,30px);font-weight:800;letter-spacing:-.01em}
 .out{margin-top:18px;font-size:30px;font-weight:800;color:var(--coral)}
 .out small{display:block;font-size:12.5px;color:rgba(255,255,255,.6);font-weight:500;margin-top:6px}
 .hostcta .btn{margin-top:20px}
+.tgcta{background:var(--soft);border-radius:24px;padding:24px 20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.tgcta h3{font-size:18px}
+.tgcta p{font-size:13px;color:var(--mut);margin-top:4px}
 .revs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
 .rev{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;font-size:13.5px;line-height:1.55;color:var(--mut)}
 .rev .st{color:#F79E1B;font-size:14px;letter-spacing:2px;margin-bottom:8px}
 .rev b{display:block;margin-top:10px;color:var(--ink);font-size:13px}
+.waitlist{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px 20px;text-align:center}
+.waitlist p{color:var(--mut);font-size:13.5px;margin:8px 0 14px}
+.wl{display:flex;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:6px}
+.wl input{flex:1;min-width:0;border:0;outline:0;font:inherit;padding:12px;font-size:14px;background:none;color:var(--ink)}
 details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:10px}
 summary{font-weight:700;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;gap:10px}
 summary::after{content:"+";color:var(--coral);font-size:18px;font-weight:800}
@@ -96,7 +124,11 @@ details p{margin-top:10px;font-size:13px;color:var(--mut);line-height:1.6}
 .final{text-align:center;padding:50px 0}
 .final p{color:var(--mut);margin:10px 0 24px}
 footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(--mut)}
+.flinks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-bottom:12px;font-size:12.5px}
+.flinks a{color:var(--mut);text-decoration:none}
 .foot{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.bottombar{position:fixed;left:0;right:0;bottom:0;z-index:45;display:flex;gap:10px;padding:10px 4%;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.bottombar .btn{flex:1;text-align:center;padding:13px}
 .rev-anim{opacity:0;transform:translateY(16px);transition:.5s}
 .rev-anim.in{opacity:1;transform:none}
 </style>
@@ -121,6 +153,11 @@ footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(
 <div class="wrap hero" id="search">
 <h1>Компаньон для любых планов, <span>когда не с кем</span></h1>
 <p class="lead">Проверенные жители Екатеринбурга составят компанию на шоппинге, концерте, пробежке или прогулке. Это сервис с правилами, а не объявления с досок.</p>
+<div class="stickers">
+<span class="stick"><em>🛍</em>«Тебе идёт, берём»</span>
+<span class="stick"><em>🎪</em>+1 на свадьбу</span>
+<span class="stick"><em>🐾</em>Выгул корги</span>
+</div>
 <div class="search">
 <input id="q" type="text" placeholder="Например: шоппинг в субботу, концерт, прогулка с животным">
 <a class="btn" href="#hosts">Найти</a>
@@ -130,6 +167,13 @@ footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(
 <span><b>✓</b> Встречи только в публичных местах</span>
 <span><b>✓</b> Средний рейтинг хостов 4.9</span>
 </div>
+<div class="stats">
+<div class="stat"><b>47</b><span>хостов в городе</span></div>
+<div class="stat"><b>312</b><span>встреч проведено</span></div>
+<div class="stat"><b>4.9</b><span>средний рейтинг</span></div>
+<div class="stat"><b>15 мин</b><span>время ответа</span></div>
+</div>
+<div class="live"><span class="dot"></span>Сегодня уже 6 встреч: шоппинг в УрФУ, +1 на свадьбу, прогулка с корги</div>
 <div class="cats" id="cats">
 <div class="cat" data-q="шоппинг"><div class="ic">🛍</div><span>Шоппинг</span></div>
 <div class="cat" data-q="мероприятие"><div class="ic">🎪</div><span>Мероприятия</span></div>
@@ -146,11 +190,12 @@ footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(
 <section class="gray" id="hosts"><div class="wrap rev-anim">
 <div class="sec-h"><h2>Хосты рядом с тобой</h2><a class="link" href="#">Все 47 хостов →</a></div>
 <div class="hosts">
-<div class="hcard"><div class="top"><div class="ava">👩🏼‍🎨</div><div><h3>Алина, 24</h3><div class="meta">Стилист: честный глаз, без лишних покупок</div><span class="badge">✓ Верифицирована</span></div></div><div class="stars">★ 4.9 <em>· 58 встреч</em></div><div class="tags"><span class="tag">Шоппинг</span><span class="tag">Фото</span></div><div class="price">от 2 500 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
+<div class="hcard"><div class="top"><div class="ava on">👩🏼‍🎨</div><div><h3>Алина, 24</h3><div class="meta">Стилист: честный глаз, без лишних покупок</div><span class="badge">✓ Верифицирована</span><span class="resp">Онлайн · отвечает ~10 мин</span></div></div><div class="stars">★ 4.9 <em>· 58 встреч</em></div><div class="tags"><span class="tag">Шоппинг</span><span class="tag">Фото</span></div><div class="price">от 2 500 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
 <div class="hcard"><div class="top"><div class="ava">🧔🏻</div><div><h3>Павел, 27</h3><div class="meta">Фотограф и походник: кадры и маршруты</div><span class="badge">✓ Верифицирован</span></div></div><div class="stars">★ 4.8 <em>· 41 встреча</em></div><div class="tags"><span class="tag">Фото</span><span class="tag">Прогулки</span></div><div class="price">от 2 000 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
-<div class="hcard"><div class="top"><div class="ava">👩🏽</div><div><h3>Мария, 31</h3><div class="meta">Кинолог и зооняня: от собак до попугаев</div><span class="badge">✓ Верифицирована</span></div></div><div class="stars">★ 5.0 <em>· 73 встречи</em></div><div class="tags"><span class="tag">Животные</span><span class="tag">Спорт</span></div><div class="price">от 1 200 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
-<div class="hcard"><div class="top"><div class="ava">👨🏻‍💼</div><div><h3>Игорь, 45</h3><div class="meta">Спокойно и по делу: события, переговоры</div><span class="badge">✓ Верифицирован</span></div></div><div class="stars">★ 4.9 <em>· 66 встреч</em></div><div class="tags"><span class="tag">Мероприятия</span><span class="tag">Трудный разговор</span></div><div class="price">от 3 000 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
+<div class="hcard"><div class="top"><div class="ava on">👩</div><div><h3>Мария, 31</h3><div class="meta">Кинолог и зооняня: от собак до попугаев</div><span class="badge">✓ Верифицирована</span><span class="resp">Онлайн · отвечает ~8 мин</span></div></div><div class="stars">★ 5.0 <em>· 73 встречи</em></div><div class="tags"><span class="tag">Животные</span><span class="tag">Спорт</span></div><div class="price">от 1 200 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
+<div class="hcard"><div class="top"><div class="ava">👨‍💼</div><div><h3>Игорь, 45</h3><div class="meta">Спокойно и по делу: события, переговоры</div><span class="badge">✓ Верифицирован</span></div></div><div class="stars">★ 4.9 <em>· 66 встреч</em></div><div class="tags"><span class="tag">Мероприятия</span><span class="tag">Трудный разговор</span></div><div class="price">от 3 000 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
 </div>
+<p class="hnote">Цена — за встречу целиком. Комиссия сервиса уже внутри, доплат нет.</p>
 </div></section>
 <section id="how"><div class="wrap rev-anim">
 <div class="sec-h"><h2>Как это работает</h2></div>
@@ -176,6 +221,10 @@ footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(
 <div class="out"><span id="sum">56 000 ₽</span><small id="detail">5 встреч в неделю · 20 в месяц · по 2 800 ₽ тебе</small></div>
 <a class="btn" href="#">Стать хостом</a>
 </div></div></section>
+<section><div class="wrap rev-anim"><div class="tgcta">
+<div><h3>Быстрее — в мессенджер</h3><p>Напиши в Telegram: подберём хоста вручную за 5 минут.</p></div>
+<a class="btn" href="https://t.me/plusone_ekb">Написать в Telegram</a>
+</div></div></section>
 <section class="gray" id="revs"><div class="wrap rev-anim">
 <div class="sec-h"><h2>Отзывы</h2></div>
 <div class="revs">
@@ -184,6 +233,11 @@ footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(
 <div class="rev"><div class="st">★★★★★</div>Как хост: правила прозрачные, выплаты быстрые. И каждую неделю — новые интересные люди.<b>Мария, хост</b></div>
 </div>
 </div></section>
+<section><div class="wrap rev-anim"><div class="waitlist">
+<h2>Хочешь Плюс Один в своём городе?</h2>
+<p>Оставь контакт — пришлём приглашение, когда откроем твой город. Первым — скидки основателей.</p>
+<div class="wl"><input type="text" placeholder="Почта или ник в Telegram"><a class="btn" href="#">Записаться</a></div>
+</div></div></section>
 <section id="faq"><div class="wrap rev-anim">
 <div class="sec-h"><h2>Частые вопросы</h2></div>
 <details><summary>Это похоже на дейтинг или эскорт?</summary><p>Нет. Плюс Один — платонический сервис компаньонов. Флирт и намёки = вечный бан. Встречи только в публичных местах.</p></details>
@@ -197,10 +251,19 @@ footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(
 <p>Екатеринбург — пилотный город. Дальше — твой.</p>
 <a class="btn" href="#search">Найти компаньона</a>
 </div>
-<footer><div class="wrap foot">
+<footer><div class="wrap">
+<div class="flinks">
+<a href="#">Оферта</a><a href="#">Конфиденциальность</a><a href="#host">Стать хостом</a><a href="https://t.me/plusone_ekb">Telegram</a><a href="#">VK</a><a href="mailto:hello@plusone.ru">hello@plusone.ru</a>
+</div>
+<div class="foot">
 <span>© 2026 Плюс Один · Екатеринбург</span>
-<span>Оферта · Конфиденциальность · 152-ФЗ</span>
+<span>Сделано с теплом и +1</span>
+</div>
 </div></footer>
+<div class="bottombar">
+<a class="btn" href="#search">Найти компаньона</a>
+<a class="btn ghost" href="#host">Стать хостом</a>
+</div>
 <script>
 var burger=document.getElementById('burger'),menu=document.getElementById('menu');
 function mShow(){menu.style.display='flex'}
@@ -211,7 +274,7 @@ window.addEventListener('resize',function(){if(window.innerWidth>=900){mShow()}e
 if(window.innerWidth>=900){mShow()}else{mHide()}
 document.getElementById('cats').addEventListener('click',function(e){
 var c=e.target.closest('.cat');if(!c)return;
-var q=document.getElementById('q');q.value=c.dataset.q;
+document.getElementById('q').value=c.dataset.q;
 document.getElementById('hosts').scrollIntoView({behavior:'smooth'});});
 var meet=document.getElementById('meet');
 meet.addEventListener('input',function(){
