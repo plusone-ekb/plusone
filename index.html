@@ -3,269 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Плюс Один — твой +1 для любых дел | Екатеринбург</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<title>Плюс Один — компаньон для любых планов | Екатеринбург</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0B1B2B;--coral:#FF5A3C;--cream:#F6F1E9;--muted:rgba(11,27,43,.62);--line:rgba(11,27,43,.08)}
+:root{--bg:#fff;--bg2:#F6F7F9;--ink:#101828;--mut:#667085;--line:#E7EAF0;--coral:#FF5A3C;--soft:#FFF1EC;--green:#12B76A}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;overflow-x:hidden}
-body{font-family:'Manrope',sans-serif;background:var(--cream);color:var(--ink)}
-.wrap{width:100%;max-width:1140px;margin:0 auto;padding:0 5%}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-text-size-adjust:100%}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 4%}
 button{font:inherit;border:0;background:none;cursor:pointer;color:inherit}
-.btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;padding:14px 26px;border-radius:999px;font-size:15px}
-.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-header{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 0}
-.logo{font-weight:800;font-size:21px;text-decoration:none;display:inline-flex;align-items:flex-start}
+.btn{display:inline-block;background:var(--coral);color:#fff;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:14px;font-size:15px}
+.btn.ghost{background:var(--soft);color:var(--coral)}
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0}
+.logo{font-weight:800;font-size:20px;text-decoration:none;display:inline-flex;align-items:flex-start;white-space:nowrap;flex:none;letter-spacing:-.02em}
 .logo i{font-style:normal;background:var(--coral);color:#fff;font-size:9px;font-weight:800;min-width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-left:4px;transform:translateY(-4px)}
+.city{display:none;font-size:12.5px;font-weight:600;color:var(--mut);background:var(--bg2);padding:6px 12px;border-radius:999px}
+.acts{display:flex;gap:8px}
+.acts .ghost{display:none}
 .burger{display:flex;flex-direction:column;gap:5px;padding:8px}
 .burger span{width:22px;height:2.5px;background:var(--ink);border-radius:2px}
-.menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:40;flex-direction:column;align-items:center;justify-content:center;gap:26px;list-style:none}
-.menu.open{display:flex}
-.menu a{text-decoration:none;font-weight:700;font-size:20px}
-.nav>.btn{display:none}
+.menu{position:fixed;inset:0;background:#fff;z-index:40;flex-direction:column;align-items:center;justify-content:center;gap:24px;list-style:none}
+.menu a{text-decoration:none;font-weight:700;font-size:19px}
 @media(min-width:900px){
 .burger{display:none}
-.menu{display:flex;position:static;inset:auto;background:none;flex-direction:row;gap:22px}
-.menu a{font-size:14.5px;font-weight:500}
-.nav>.btn{display:inline-block}
+.menu{position:static;inset:auto;background:none;flex-direction:row;gap:20px}
+.menu a{font-size:14px;font-weight:600;color:var(--mut)}
+.acts .ghost{display:inline-block}
+.city{display:inline-block}
 }
-.hero{padding:44px 0 40px}
-.kicker{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
-h1{font-size:clamp(30px,9vw,58px);font-weight:800;line-height:1.08;letter-spacing:-.02em}
-h1 em{font-style:normal;color:var(--coral)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
-.chip{padding:10px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-weight:600;font-size:13.5px}
-.chip.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-#sceneSub{color:var(--muted);font-size:16px;margin-bottom:10px}
-#scenePrice{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:800;font-size:13.5px;margin-bottom:22px}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.trust{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:28px;font-size:13px;color:var(--muted)}
-.trust b{color:var(--coral)}
-section{padding:44px 0}
-h2{font-size:clamp(24px,7vw,40px);font-weight:800;margin-bottom:10px}
-.sub{color:var(--muted);margin-bottom:26px}
-.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
-.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px 18px}
-.card .ico{font-size:28px}
-.card h3{font-size:16px;margin:10px 0 6px}
-.card p{font-size:13px;color:var(--muted)}
-.card .price{margin-top:12px;font-weight:800;font-size:12.5px;color:var(--coral)}
-.steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));counter-reset:s}
-.step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 20px}
-.step::before{counter-increment:s;content:"0" counter(s);color:var(--coral);font-weight:800;font-size:13px}
-.step h3{margin:8px 0 6px;font-size:18px}
-.step p{font-size:14px;color:var(--muted)}
-.dark{background:var(--ink);color:var(--cream);border-radius:24px;padding:28px 22px}
-.dark h2{color:var(--cream)}
-.dark .sub{color:rgba(246,241,233,.65)}
-.safe{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
-.safe h3{color:var(--coral);font-size:14.5px;margin-bottom:6px}
-.safe p{font-size:13.5px;opacity:.8}
-.manifest{margin-top:24px;padding-top:20px;border-top:1px solid rgba(246,241,233,.15);font-size:15px;line-height:1.55}
-.manifest b{color:var(--coral)}
-.hostbox{display:grid;gap:14px}
-@media(min-width:860px){.hostbox{grid-template-columns:1.1fr .9fr}}
-.calc{background:var(--ink);color:var(--cream);border-radius:20px;padding:26px 22px}
-.calc h3{font-size:19px;margin-bottom:6px}
-.calc p{font-size:13px;opacity:.7;margin-bottom:20px}
-.calc input{width:100%;accent-color:var(--coral)}
-.calc .out{margin-top:20px;font-size:32px;font-weight:800;color:var(--coral)}
-.calc .out small{display:block;font-size:12.5px;color:rgba(246,241,233,.6);font-weight:500;margin-top:6px}
-.lvl{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px}
-.lvl h3{font-size:19px;margin-bottom:16px}
-.rung{display:flex;gap:12px;align-items:center;margin-bottom:12px;font-weight:600;font-size:14px}
-.rung i{font-style:normal;flex:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
-.rung small{display:block;font-weight:500;color:var(--muted);font-size:12px}
-.r1 i{background:#E8E2D8}.r2 i{background:#FFD9CF}.r3 i{background:var(--coral);color:#fff}.r4 i{background:var(--ink);color:#fff}
-.rung.now{outline:2px solid var(--coral);outline-offset:4px;border-radius:12px}
-.senior{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px 22px}
-.senior p{color:var(--muted);margin-top:10px;font-size:14.5px;line-height:1.6}
-.quote{margin-top:16px;padding-left:14px;border-left:3px solid var(--coral);font-style:italic;font-size:14px}
-.senior .btn{margin-top:20px}
-.gold{background:var(--ink);color:var(--cream);border-radius:24px;padding:28px 22px}
-.gold h2{color:var(--cream)}
-.gold ul{list-style:none;margin:14px 0 20px;display:grid;gap:10px;font-size:14px}
-.gold li::before{content:"+ ";color:var(--coral);font-weight:800}
-.gold .price{font-size:34px;font-weight:800;color:var(--coral)}
-.gold .price small{font-size:13px;color:rgba(246,241,233,.6);font-weight:500}
-details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:10px}
-summary{font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:10px}
+.hero{padding:34px 0 6px}
+h1{font-size:clamp(26px,7.5vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.12}
+h1 span{color:var(--coral)}
+.lead{color:var(--mut);margin:12px 0 20px;font-size:15.5px;line-height:1.5}
+.search{display:flex;gap:8px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:6px;box-shadow:0 8px 24px rgba(16,24,40,.06)}
+.search input{flex:1;min-width:0;border:0;outline:0;font:inherit;padding:12px 14px;font-size:15px;background:none;color:var(--ink)}
+.trust{display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0 6px;font-size:12.5px;color:var(--mut)}
+.trust b{color:var(--green)}
+.cats{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(min(100%,76px),1fr));padding:16px 0 6px}
+.cat{text-align:center;cursor:pointer}
+.cat .ic{width:60px;height:60px;border-radius:20px;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 7px;transition:.15s}
+.cat:nth-child(2n) .ic{background:#EAF2FF}
+.cat:nth-child(3n) .ic{background:#E9F8EF}
+.cat:nth-child(4n) .ic{background:#FFF6E5}
+.cat:active .ic{transform:scale(.94)}
+.cat span{font-size:11.5px;font-weight:600;color:var(--mut);line-height:1.25;display:block}
+section{padding:34px 0}
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:14px}
+h2{font-size:clamp(20px,5vw,30px);font-weight:800;letter-spacing:-.01em}
+.link{color:var(--coral);font-weight:700;font-size:13.5px;text-decoration:none;white-space:nowrap}
+.hosts{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.hcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 4px 16px rgba(16,24,40,.04)}
+.top{display:flex;gap:12px;align-items:center}
+.ava{width:52px;height:52px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:24px;flex:none}
+.hcard h3{font-size:15.5px}
+.meta{font-size:12.5px;color:var(--mut);margin-top:2px}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;color:var(--green);background:#E8F7EF;padding:3px 8px;border-radius:999px;margin-top:4px}
+.stars{font-size:13px;font-weight:800;margin-top:10px}
+.stars em{font-style:normal;color:var(--mut);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.tag{font-size:11.5px;font-weight:600;color:var(--mut);background:var(--bg2);padding:5px 10px;border-radius:999px}
+.price{font-weight:800;font-size:15px}
+.price small{color:var(--mut);font-weight:500;font-size:12px}
+.hcard .btn{width:100%;text-align:center;margin-top:12px;padding:11px}
+.gray{background:var(--bg2)}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px}
+.num{width:34px;height:34px;border-radius:12px;background:var(--coral);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.step h3{font-size:16px;margin-bottom:6px}
+.step p{font-size:13.5px;color:var(--mut);line-height:1.5}
+.safe{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.sitem{display:flex;gap:12px}
+.sitem .ic{width:44px;height:44px;border-radius:14px;background:var(--soft);font-size:20px;display:flex;align-items:center;justify-content:center;flex:none}
+.sitem h3{font-size:14.5px;margin-bottom:4px}
+.sitem p{font-size:13px;color:var(--mut);line-height:1.45}
+.hostcta{background:var(--ink);color:#fff;border-radius:24px;padding:26px 22px}
+.hostcta h2{color:#fff}
+.hostcta p{color:rgba(255,255,255,.7);font-size:14px;margin:8px 0 20px}
+.hostcta input{width:100%;accent-color:var(--coral)}
+.out{margin-top:18px;font-size:30px;font-weight:800;color:var(--coral)}
+.out small{display:block;font-size:12.5px;color:rgba(255,255,255,.6);font-weight:500;margin-top:6px}
+.hostcta .btn{margin-top:20px}
+.revs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))}
+.rev{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;font-size:13.5px;line-height:1.55;color:var(--mut)}
+.rev .st{color:#F79E1B;font-size:14px;letter-spacing:2px;margin-bottom:8px}
+.rev b{display:block;margin-top:10px;color:var(--ink);font-size:13px}
+details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:10px}
+summary{font-weight:700;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;gap:10px}
 summary::after{content:"+";color:var(--coral);font-size:18px;font-weight:800}
 details[open] summary::after{content:"–"}
-details p{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.6}
-.final{text-align:center;padding:60px 0}
-.final p{color:var(--muted);margin-bottom:26px}
-footer{border-top:1px solid var(--line);padding:28px 0;font-size:12.5px;color:var(--muted)}
+details p{margin-top:10px;font-size:13px;color:var(--mut);line-height:1.6}
+.final{text-align:center;padding:50px 0}
+.final p{color:var(--mut);margin:10px 0 24px}
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:12px;color:var(--mut)}
 .foot{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
-.rev{opacity:0;transform:translateY(18px);transition:.5s}
-.rev.in{opacity:1;transform:none}
+.rev-anim{opacity:0;transform:translateY(16px);transition:.5s}
+.rev-anim.in{opacity:1;transform:none}
 </style>
 </head>
-<body>
+<body style="overflow-x:hidden;width:100%">
 <header><div class="wrap nav">
 <a class="logo" href="#">Плюс Один<i>+1</i></a>
-<ul class="menu" id="menu">
-<li><a href="#scenes">Сценарии</a></li>
+<ul class="menu" id="menu" style="display:none">
+<li><a href="#hosts">Хосты</a></li>
 <li><a href="#how">Как работает</a></li>
 <li><a href="#safe">Безопасность</a></li>
-<li><a href="#host">Стать хостом</a></li>
+<li><a href="#revs">Отзывы</a></li>
 <li><a href="#faq">Вопросы</a></li>
 </ul>
-<a class="btn" href="#cta">Забронировать</a>
+<span class="city">Екатеринбург</span>
+<span class="acts">
+<a class="btn ghost" href="#host">Стать хостом</a>
+<a class="btn" href="#search">Забронировать</a>
+</span>
 <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
 </div></header>
-
-<div class="wrap hero">
-<span class="kicker">Сервис компаньонов · платонически</span>
-<h1>Куда сегодня <em>нужен +1</em>?</h1>
-<div class="chips" id="chips">
-<button class="chip on" data-s="shop">🛍 Шоппинг</button>
-<button class="chip" data-s="event">🎭 Мероприятие</button>
-<button class="chip" data-s="dog">🐕 Собака</button>
-<button class="chip" data-s="sport">🏃 Спорт</button>
-<button class="chip" data-s="city">🌍 Новый город</button>
-<button class="chip" data-s="talk">💬 Поговорить</button>
-</div>
-<p id="sceneSub">Стилист-компаньон скажет честное «идёт или не идёт» — то, что никогда не скажет продавец.</p>
-<span id="scenePrice">от 3 500 ₽ · 2 часа</span>
-<div class="cta" id="cta">
-<a class="btn" href="#form">Подобрать компаньона</a>
-<a class="btn ghost" href="#host">Стать хостом</a>
+<div class="wrap hero" id="search">
+<h1>Компаньон для любых планов, <span>когда не с кем</span></h1>
+<p class="lead">Проверенные жители Екатеринбурга составят компанию на шоппинге, концерте, пробежке или прогулке. Это сервис с правилами, а не объявления с досок.</p>
+<div class="search">
+<input id="q" type="text" placeholder="Например: шоппинг в субботу, концерт, прогулка с животным">
+<a class="btn" href="#hosts">Найти</a>
 </div>
 <div class="trust">
-<span><b>✓</b> Верификация по паспорту</span>
-<span><b>✓</b> Только публичные места</span>
-<span><b>✓</b> Оплата и чек внутри сервиса</span>
-<span><b>✓</b> Отзывы только после встречи</span>
+<span><b>✓</b> Верификация хостов по паспорту</span>
+<span><b>✓</b> Встречи только в публичных местах</span>
+<span><b>✓</b> Средний рейтинг хостов 4.9</span>
+</div>
+<div class="cats" id="cats">
+<div class="cat" data-q="шоппинг"><div class="ic">🛍</div><span>Шоппинг</span></div>
+<div class="cat" data-q="мероприятие"><div class="ic">🎪</div><span>Мероприятия</span></div>
+<div class="cat" data-q="прогулка с животным"><div class="ic">🐾</div><span>Животные</span></div>
+<div class="cat" data-q="спорт"><div class="ic">🏃</div><span>Спорт</span></div>
+<div class="cat" data-q="фотосъёмка"><div class="ic">📸</div><span>Фото</span></div>
+<div class="cat" data-q="прогулка и кофе"><div class="ic">💬</div><span>Прогулки и кофе</span></div>
+<div class="cat" data-q="компаньон для родителей"><div class="ic">👵</div><span>Для родителей</span></div>
+<div class="cat" data-q="новый город"><div class="ic">🧭</div><span>Новый город</span></div>
+<div class="cat" data-q="сложный разговор"><div class="ic">🤝</div><span>Трудный разговор</span></div>
+<div class="cat" data-q="отпуск"><div class="ic">🌴</div><span>Отпуск</span></div>
 </div>
 </div>
-
-<section id="scenes"><div class="wrap rev">
-<h2>Десять сценариев, где нужен свой человек</h2>
-<p class="sub">Не «друг на час» из объявлений. Компаньоны с рейтингом, навыками и правилами.</p>
-<div class="grid">
-<div class="card"><div class="ico">🛍</div><h3>Стиль и магазин</h3><p>Честная обратная связь, капсульный гардероб, без импульс-покупок.</p><div class="price">от 3 500 ₽</div></div>
-<div class="card"><div class="ico">🎭</div><h3>Партнёр мероприятия</h3><p>+1 на свадьбу, концерт, корпоратив. Поддержит разговор и не даст скучать.</p><div class="price">от 4 000 ₽</div></div>
-<div class="card"><div class="ico">🐕</div><h3>Собачий друг</h3><p>Прогулка с дружелюбным псом или помощь с дрессировкой твоей.</p><div class="price">от 1 200 ₽</div></div>
-<div class="card"><div class="ico">🏃</div><h3>Фитнес-партнёр</h3><p>Напарник на пробежку или зал, который не сольётся в последний момент.</p><div class="price">от 2 500 ₽</div></div>
-<div class="card"><div class="ico">📸</div><h3>Создатель контента</h3><p>Живые кадры на прогулке: соцсети без «сфоткай меня, пожалуйста».</p><div class="price">от 1 000 ₽/ч</div></div>
-<div class="card"><div class="ico">👴</div><h3>Старший друг</h3><p>Компаньон для родителей: прогулки, поликлиника, гаджеты. Платят дети.</p><div class="price">от 1 500 ₽</div></div>
-<div class="card"><div class="ico">🌍</div><h3>Travel Fixer</h3><p>Свой человек в чужом городе: кофе, дворы, места без путеводителей.</p><div class="price">от 3 500 ₽</div></div>
-<div class="card"><div class="ico">💬</div><h3>Социальный компаньон</h3><p>Кофе, кино, разговор без осуждения. Иногда достаточно просто этого.</p><div class="price">от 3 000 ₽</div></div>
-<div class="card"><div class="ico">🗣</div><h3>Переговорщик</h3><p>Поддержка в сложных разговорах: возврат товара, спор, неприятная встреча.</p><div class="price">от 3 000 ₽</div></div>
-<div class="card"><div class="ico">🏖</div><h3>Друг по курортам</h3><p>Компаньон в отпуске: ужины, маршруты, компания. Скоро: Сочи и Дубай.</p><div class="price">скоро</div></div>
+<section class="gray" id="hosts"><div class="wrap rev-anim">
+<div class="sec-h"><h2>Хосты рядом с тобой</h2><a class="link" href="#">Все 47 хостов →</a></div>
+<div class="hosts">
+<div class="hcard"><div class="top"><div class="ava">👩🏼‍🎨</div><div><h3>Алина, 24</h3><div class="meta">Стилист: честный глаз, без лишних покупок</div><span class="badge">✓ Верифицирована</span></div></div><div class="stars">★ 4.9 <em>· 58 встреч</em></div><div class="tags"><span class="tag">Шоппинг</span><span class="tag">Фото</span></div><div class="price">от 2 500 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
+<div class="hcard"><div class="top"><div class="ava">🧔🏻</div><div><h3>Павел, 27</h3><div class="meta">Фотограф и походник: кадры и маршруты</div><span class="badge">✓ Верифицирован</span></div></div><div class="stars">★ 4.8 <em>· 41 встреча</em></div><div class="tags"><span class="tag">Фото</span><span class="tag">Прогулки</span></div><div class="price">от 2 000 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
+<div class="hcard"><div class="top"><div class="ava">👩🏽</div><div><h3>Мария, 31</h3><div class="meta">Кинолог и зооняня: от собак до попугаев</div><span class="badge">✓ Верифицирована</span></div></div><div class="stars">★ 5.0 <em>· 73 встречи</em></div><div class="tags"><span class="tag">Животные</span><span class="tag">Спорт</span></div><div class="price">от 1 200 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
+<div class="hcard"><div class="top"><div class="ava">👨🏻‍💼</div><div><h3>Игорь, 45</h3><div class="meta">Спокойно и по делу: события, переговоры</div><span class="badge">✓ Верифицирован</span></div></div><div class="stars">★ 4.9 <em>· 66 встреч</em></div><div class="tags"><span class="tag">Мероприятия</span><span class="tag">Трудный разговор</span></div><div class="price">от 3 000 ₽ <small>/ час</small></div><a class="btn ghost" href="#">Смотреть профиль</a></div>
 </div>
 </div></section>
-
-<section id="how"><div class="wrap rev">
-<h2>Три шага до встречи</h2>
-<p class="sub">Без звонков незнакомцам и переводов на карту. Всё внутри сервиса.</p>
+<section id="how"><div class="wrap rev-anim">
+<div class="sec-h"><h2>Как это работает</h2></div>
 <div class="steps">
-<div class="step"><h3>Расскажи про ситуацию</h3><p>Куда, когда, что важно. Заявка занимает 40 секунд.</p></div>
-<div class="step"><h3>Выбери своего +1</h3><p>Покажем 3 проверенных профиля: рейтинг, навыки, отзывы после встреч.</p></div>
-<div class="step"><h3>Встретьтесь спокойно</h3><p>Деньги держим до конца встречи, чек самозанятого, тревожная кнопка на связи.</p></div>
+<div class="step"><div class="num">1</div><h3>Оставь заявку</h3><p>40 секунд: куда, когда и что важно. Без звонков незнакомцам.</p></div>
+<div class="step"><div class="num">2</div><h3>Выбери своего +1</h3><p>Покажем 3 проверенных профиля с рейтингом и отзывами после встреч.</p></div>
+<div class="step"><div class="num">3</div><h3>Встретьтесь</h3><p>Оплата внутри сервиса, чек самозанятого, поддержка на связи.</p></div>
 </div>
 </div></section>
-
-<section id="safe"><div class="wrap rev"><div class="dark">
-<h2>Безопасность — это и есть продукт</h2>
-<p class="sub">Мы строим сервис доверия, поэтому правила жёстче, чем кажутся.</p>
+<section class="gray" id="safe"><div class="wrap rev-anim">
+<div class="sec-h"><h2>Безопасность встроена в сервис</h2></div>
 <div class="safe">
-<div><h3>Верификация</h3><p>Паспорт + Госуслуги + видео-собеседование для каждого хоста. Без исключений.</p></div>
-<div><h3>Только публичные места</h3><p>Кафе, парки, ТЦ, мероприятия. Квартиры и отели = вечный бан.</p></div>
-<div><h3>Тревожная кнопка</h3><p>В чате встречи. Реакция дежурного модератора 24/7.</p></div>
-<div><h3>Честные рейтинги</h3><p>Отзыв можно оставить только после оплаченной и завершённой встречи.</p></div>
+<div class="sitem"><div class="ic">🛡</div><div><h3>Верификация</h3><p>Паспорт и Госуслуги у каждого хоста. Без исключений.</p></div></div>
+<div class="sitem"><div class="ic">📍</div><div><h3>Публичные места</h3><p>Кафе, парки, ТЦ, мероприятия. Квартиры = вечный бан.</p></div></div>
+<div class="sitem"><div class="ic">🆘</div><div><h3>Поддержка 24/7</h3><p>Тревожная кнопка прямо в чате встречи.</p></div></div>
+<div class="sitem"><div class="ic">⭐</div><div><h3>Честные рейтинги</h3><p>Отзывы только после оплаченной и завершённой встречи.</p></div></div>
 </div>
-<p class="manifest">Это <b>не дейтинг</b> и не «объявления с Авито». Плюс Один — сервис для тех, кто ценит своё время и комфорт. Флирт и намёки = бан навсегда. Мы продаём компанию, а не иллюзии.</p>
-</div></div></section>
-
-<section id="host"><div class="wrap rev">
-<h2>Стань хостом Плюс Один</h2>
-<p class="sub">Зарабатывай на том, что и так умеешь: общаться, фоткать, тренировать, гулять с собакой.</p>
-<div class="hostbox">
-<div class="calc">
-<h3>Сколько ты будешь зарабатывать</h3><p>Двигай ползунок: сколько встреч в неделю готов брать</p>
+</div></section>
+<section id="host"><div class="wrap rev-anim"><div class="hostcta">
+<h2>Зарабатывай, будучи рядом</h2>
+<p>Общайся, фоткай, тренируй, гуляй с животными — и получай за это деньги. Двигай ползунок:</p>
 <input type="range" id="meet" min="1" max="15" value="5">
-<div class="out"><span id="sum">56 000 ₽</span><small id="detail">5 встреч в неделю · 20 встреч в месяц · по 2 800 ₽ тебе</small></div>
-</div>
-<div class="lvl">
-<h3>Твой путь в игре</h3>
-<div class="rung r1 now"><i>1</i><div>Новичок<small>старт: базовые сценарии</small></div></div>
-<div class="rung r2"><i>2</i><div>Про<small>1 000 XP: все вертикали, цена +10%</small></div></div>
-<div class="rung r3"><i>3</i><div>Мастер<small>5 000 XP: менторство и дуэты</small></div></div>
-<div class="rung r4"><i>4</i><div>Легенда<small>20 000 XP: капитан города, совет хостов</small></div></div>
-</div>
-</div>
-<p style="margin-top:20px"><a class="btn" href="#form-host">Оставить заявку в хосты</a></p>
-</div></section>
-
-<section><div class="wrap rev"><div class="senior">
-<h2>Для тех, чьи родители далеко</h2>
-<p>Мама не жалуется, но ей одиноко. Хост Плюс Один придёт на прогулку, поможет с поликлиникой и гаджетами, а тебе после каждой встречи придёт тёплый отчёт: настроение, активности, фото.</p>
-<p class="quote">«Сынок, ко мне приходила девушка из Плюс Один, мы гуляли в парке час. Спасибо, что придумал» — такие сообщения получают наши клиенты.</p>
-<a class="btn" href="#form">Подобрать компаньона для близких</a>
+<div class="out"><span id="sum">56 000 ₽</span><small id="detail">5 встреч в неделю · 20 в месяц · по 2 800 ₽ тебе</small></div>
+<a class="btn" href="#">Стать хостом</a>
 </div></div></section>
-
-<section><div class="wrap rev"><div class="gold">
-<h2>Плюс Один Gold</h2>
-<ul>
-<li>Скидка 15% на все встречи</li>
-<li>Фотосессия на прогулке в подарок каждый месяц</li>
-<li>Приоритетный подбор хоста за 15 минут</li>
-<li>Закрытые события сообщества</li>
-</ul>
-<div class="price">990 ₽<small> /мес · окупается с двух встреч</small></div>
-</div></div></section>
-
-<section id="faq"><div class="wrap rev">
-<h2>Вопросы, которые задают все</h2>
-<details><summary>Это что-то вроде эскорта или дейтинга?</summary><p>Нет. Плюс Один — платонический сервис компаньонов. Любые намёки на интим или флирт означают вечный бан. Встречи — только в публичных местах, правила прописаны в оферте.</p></details>
-<details><summary>Насколько это безопасно?</summary><p>Каждый хост проходит верификацию по паспорту и Госуслугам, видео-собеседование и испытательный срок. Деньги клиента хранятся в сервисе до конца встречи. В чате встречи есть тревожная кнопка с реакцией 24/7.</p></details>
-<details><summary>Кто такие хосты?</summary><p>Самозанятые жители города: стилисты, фотографы, тренеры, собачники, студенты-театралы. У каждого рейтинг, навыки и история отзывов. Хостом может стать любой после верификации и обучения.</p></details>
-<details><summary>Как происходит оплата?</summary><p>Онлайн внутри сервиса (СБП, карта). Хост получает 80%, сервис — 20%. Клиенту приходит чек самозанятого. Если встреча не состоялась по вине хоста — возврат 100%.</p></details>
-<details><summary>Почему нельзя договориться с хостом напрямую?</summary><p>Можно, но невыгодно: внутри сервиса работают кэшбэк 10%, страховка встречи, рейтинг и защита денег. Вне сервиса всё это исчезает, а хост теряет свой рейтинг-капитал.</p></details>
+<section class="gray" id="revs"><div class="wrap rev-anim">
+<div class="sec-h"><h2>Отзывы</h2></div>
+<div class="revs">
+<div class="rev"><div class="st">★★★★★</div>Заказала компаньона для мамы впервые — теперь бронирую дважды в неделю. Отчёты после прогулок — это нечто.<b>Алексей, клиент</b></div>
+<div class="rev"><div class="st">★★★★★</div>Ходила с хостом Плюс Один на свадьбу как +1. Спас от неловких разговоров, танцевали вместе.<b>Катя, клиент</b></div>
+<div class="rev"><div class="st">★★★★★</div>Как хост: правила прозрачные, выплаты быстрые. И каждую неделю — новые интересные люди.<b>Мария, хост</b></div>
+</div>
 </div></section>
-
-<div class="wrap final rev">
-<h2>Одиночество — не приговор. Это просто задача на +1</h2>
+<section id="faq"><div class="wrap rev-anim">
+<div class="sec-h"><h2>Частые вопросы</h2></div>
+<details><summary>Это похоже на дейтинг или эскорт?</summary><p>Нет. Плюс Один — платонический сервис компаньонов. Флирт и намёки = вечный бан. Встречи только в публичных местах.</p></details>
+<details><summary>Это безопасно?</summary><p>Верификация по паспорту и Госуслугам, деньги хранятся в сервисе до конца встречи, тревожная кнопка в чате, поддержка 24/7.</p></details>
+<details><summary>Кто такие хосты?</summary><p>Самозанятые жители города: стилисты, фотографы, тренеры, кинологи, студенты. У каждого рейтинг и история отзывов.</p></details>
+<details><summary>Как оплатить?</summary><p>Онлайн внутри сервиса: СБП или карта. Хост получает 80%, сервис 20%. Чек самозанятого приходит автоматически.</p></details>
+<details><summary>Можно договориться с хостом напрямую?</summary><p>Можно, но невыгодно: внутри работают кэшбэк 10%, страховка встречи и защита денег. Снаружи всё это исчезает.</p></details>
+</div></section>
+<div class="wrap final rev-anim">
+<h2>Планы не отменяются из-за того, что не с кем</h2>
 <p>Екатеринбург — пилотный город. Дальше — твой.</p>
-<a class="btn" href="#form">Подобрать компаньона</a>
+<a class="btn" href="#search">Найти компаньона</a>
 </div>
-
 <footer><div class="wrap foot">
 <span>© 2026 Плюс Один · Екатеринбург</span>
-<span>Сделано с теплом и +1</span>
+<span>Оферта · Конфиденциальность · 152-ФЗ</span>
 </div></footer>
-
 <script>
 var burger=document.getElementById('burger'),menu=document.getElementById('menu');
-burger.addEventListener('click',function(){menu.classList.toggle('open')});
-menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open')});
-var S={
-shop:['Стилист-компаньон скажет честное «идёт или не идёт» — то, что никогда не скажет продавец.','от 3 500 ₽ · 2 часа'],
-event:['Свадьба, концерт, корпоратив: приходи с человеком, с которым комфортно и есть о чём поговорить.','от 4 000 ₽ · 3 часа'],
-dog:['Прогулка с дружелюбным псом, если своей собаки нет, или помощь с дрессировкой твоей.','от 1 200 ₽ · час'],
-sport:['Пробежка, зал, йога: напарник, который придёт и не сольётся в последний момент.','от 2 500 ₽ · час'],
-city:['Приехал в новый город? Местный покажет кофе, дворы и места, которых нет в путеводителях.','от 3 500 ₽ · 3 часа'],
-talk:['Кофе и разговор без осуждения и советов. Иногда именно этого не хватает больше всего.','от 3 000 ₽ · 2 часа']};
-document.getElementById('chips').addEventListener('click',function(e){
-var b=e.target.closest('.chip');if(!b)return;
-var all=document.querySelectorAll('.chip');for(var i=0;i<all.length;i++)all[i].classList.remove('on');
-b.classList.add('on');
-document.getElementById('sceneSub').textContent=S[b.dataset.s][0];
-document.getElementById('scenePrice').textContent=S[b.dataset.s][1];});
+function mShow(){menu.style.display='flex'}
+function mHide(){menu.style.display='none'}
+burger.addEventListener('click',function(){if(menu.style.display==='flex'){mHide()}else{mShow()}});
+menu.addEventListener('click',function(e){if(e.target.tagName==='A')mHide()});
+window.addEventListener('resize',function(){if(window.innerWidth>=900){mShow()}else{mHide()}});
+if(window.innerWidth>=900){mShow()}else{mHide()}
+document.getElementById('cats').addEventListener('click',function(e){
+var c=e.target.closest('.cat');if(!c)return;
+var q=document.getElementById('q');q.value=c.dataset.q;
+document.getElementById('hosts').scrollIntoView({behavior:'smooth'});});
 var meet=document.getElementById('meet');
 meet.addEventListener('input',function(){
 var w=+meet.value,m=Math.round(w*4.3),s=m*2800;
 document.getElementById('sum').textContent=s.toLocaleString('ru-RU')+' ₽';
-document.getElementById('detail').textContent=w+' встреч в неделю · '+m+' встреч в месяц · по 2 800 ₽ тебе';
-var r=document.querySelectorAll('.rung');for(var i=0;i<r.length;i++)r[i].classList.remove('now');
-r[w>=12?3:w>=8?2:w>=4?1:0].classList.add('now');});
+document.getElementById('detail').textContent=w+' встреч в неделю · '+m+' в месяц · по 2 800 ₽ тебе';});
 if('IntersectionObserver' in window){
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
-var rs=document.querySelectorAll('.rev');for(var i=0;i<rs.length;i++)io.observe(rs[i]);
-}else{var rs2=document.querySelectorAll('.rev');for(var j=0;j<rs2.length;j++)rs2[j].classList.add('in');}
+var rs=document.querySelectorAll('.rev-anim');for(var i=0;i<rs.length;i++)io.observe(rs[i]);
+}else{var r2=document.querySelectorAll('.rev-anim');for(var j=0;j<r2.length;j++)r2[j].classList.add('in');}
 </script>
 </body>
 </html>
