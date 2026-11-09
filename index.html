@@ -6,62 +6,65 @@
 <title>Плюс Один — компаньон рядом | Екатеринбург</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fff;--ink:#0F172A;--mut:#64748B;--line:#E2E8F0;--coral:#FF5A3C;--soft:#FFF1EC;--shadow:0 4px 20px rgba(15,23,42,.08)}
+:root{--bg:#F8FAFC;--surface:#FFFFFF;--ink:#0F172A;--mut:#64748B;--line:#E2E8F0;--coral:#FF5A3C;--neon:#FF7B5C;--soft:#FFF1EC}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.5}
 .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
-.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--coral);color:#fff;text-decoration:none;font-weight:600;padding:12px 24px;border-radius:12px;font-size:15px;transition:.2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--coral);color:#fff;text-decoration:none;font-weight:600;padding:12px 24px;border-radius:12px;font-size:15px;transition:.2s;border:none;cursor:pointer}
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,90,60,.3)}
-.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
 header{position:absolute;top:0;left:0;right:0;z-index:10;padding:20px 0}
 .nav{display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;font-size:22px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:6px}
-.logo i{background:var(--coral);color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+.logo{font-weight:800;font-size:22px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+/* НЕОНОВЫЙ ЛОГОТИП */
+.logo i{background:var(--coral);color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;box-shadow:0 0 12px var(--neon), inset 0 0 4px rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.2)}
 .actions{display:flex;gap:12px}
-.map-hero{height:60vh;min-height:400px;background:#F1F5F9;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.map-bg{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.95)}
-.pin{position:absolute;width:32px;height:32px;background:var(--coral);border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 12px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center}
-.pin span{transform:rotate(45deg);color:#fff;font-size:14px;font-weight:700}
-.search-panel{position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);width:min(90%,600px);background:#fff;border-radius:20px;padding:20px;box-shadow:var(--shadow);z-index:20}
-.tabs{display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:12px}
-.tab{flex:1;text-align:center;font-weight:600;font-size:14px;color:var(--mut);cursor:pointer;padding:8px;border-radius:8px;transition:.2s}
-.tab.active{background:var(--soft);color:var(--coral)}
-.search-row{display:flex;gap:10px}
-.input-group{flex:1;position:relative}
-.input-group label{position:absolute;top:8px;left:12px;font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase}
-.input-group input{width:100%;padding:28px 12px 10px;border:1px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;outline:none;transition:.2s}
-.input-group input:focus{border-color:var(--coral)}
-.section{padding:80px 0 40px}
-h2{font-size:28px;font-weight:800;margin-bottom:24px;letter-spacing:-.02em}
-.hosts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
-.hcard{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:.3s;position:relative}
-.hcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-.hphoto{height:200px;background:#F1F5F9;position:relative;display:flex;align-items:center;justify-content:center;font-size:60px}
-.online-dot{position:absolute;top:16px;right:16px;width:10px;height:10px;background:#10B981;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 4px rgba(16,185,129,.2)}
-.hinfo{padding:20px}
-.hname{font-size:18px;font-weight:700;margin-bottom:4px;display:flex;justify-content:space-between}
-.rating{color:var(--coral);font-weight:700;font-size:14px}
-.hdesc{color:var(--mut);font-size:14px;line-height:1.5;margin-bottom:16px}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-.tag{background:var(--bg);padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600;color:var(--mut)}
-.price-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:16px}
-.price{font-size:18px;font-weight:800}
-.book-btn{background:var(--ink);color:#fff;padding:10px 20px;border-radius:10px;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:.2s}
-.book-btn:hover{background:var(--coral)}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:60px}
-.feature{text-align:center}
-.ficon{width:60px;height:60px;background:var(--soft);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 16px}
-.feature h3{font-size:18px;margin-bottom:8px}
-.feature p{color:var(--mut);font-size:14px;line-height:1.5}
-footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px}
+.hero-map{height:65vh;min-height:450px;background:linear-gradient(135deg,#1E293B 0%,#0F172A 100%);position:relative;overflow:hidden;display:flex;align-items:end;justify-content:center;padding-bottom:40px}
+/* СЕТКА ДОРОГ (CSS SVG) */
+.grid-lines{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:.8}
+.pin{position:absolute;width:36px;height:36px;background:var(--coral);border-radius:50% 50% 50% 0;transform:rotate(-45deg);box-shadow:0 4px 12px rgba(0,0,0,.3), 0 0 15px var(--neon);display:flex;align-items:center;justify-content:center;z-index:5;animation:bob 3s infinite ease-in-out}
+.pin span{transform:rotate(45deg);color:#fff;font-size:16px;font-weight:700}
+@keyframes bob{0%,100%{transform:rotate(-45deg) translateY(0)}50%{transform:rotate(-45deg) translateY(-5px)}}
+.search-panel{width:min(95%,640px);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-radius:24px;padding:24px;box-shadow:0 20px 40px rgba(0,0,0,.15);z-index:10;position:relative;margin-top:-60px}
+.tabs{display:flex;gap:8px;margin-bottom:20px;background:var(--bg);padding:4px;border-radius:12px}
+.tab{flex:1;text-align:center;font-weight:600;font-size:14px;color:var(--mut);cursor:pointer;padding:10px;border-radius:8px;transition:.2s}
+.tab.active{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.search-row{display:flex;gap:12px;flex-wrap:wrap}
+.input-group{flex:1;min-width:200px;position:relative}
+.input-group label{position:absolute;top:10px;left:14px;font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+.input-group input{width:100%;padding:32px 14px 12px;border:1px solid transparent;background:var(--bg);border-radius:12px;font-size:15px;font-family:inherit;outline:none;transition:.2s;color:var(--ink)}
+.input-group input:focus{background:#fff;border-color:var(--coral);box-shadow:0 0 0 3px rgba(255,90,60,.1)}
+.section{padding:60px 0}
+h2{font-size:28px;font-weight:800;margin-bottom:30px;letter-spacing:-.02em}
+.hosts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.hcard{background:var(--surface);border-radius:24px;overflow:hidden;transition:.3s;box-shadow:0 4px 20px rgba(15,23,42,.04);border:1px solid var(--line)}
+.hcard:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(15,23,42,.08);border-color:var(--coral)}
+.hphoto{height:220px;background:linear-gradient(to bottom right,#F1F5F9,#E2E8F0);position:relative;display:flex;align-items:center;justify-content:center;font-size:70px}
+.online-dot{position:absolute;top:16px;right:16px;width:12px;height:12px;background:#10B981;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 4px rgba(16,185,129,.2)}
+.hinfo{padding:24px}
+.hname{font-size:20px;font-weight:700;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.rating{color:var(--coral);font-weight:700;font-size:15px;background:var(--soft);padding:4px 10px;border-radius:8px}
+.hdesc{color:var(--mut);font-size:15px;line-height:1.6;margin-bottom:20px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tag{background:var(--bg);padding:6px 12px;border-radius:8px;font-size:13px;font-weight:600;color:var(--mut)}
+.price-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:20px}
+.price{font-size:20px;font-weight:800;color:var(--ink)}
+.book-btn{background:var(--ink);color:#fff;padding:12px 24px;border-radius:12px;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:.2s}
+.book-btn:hover{background:var(--coral);transform:scale(1.02)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:60px}
+.feature{text-align:center;padding:30px;background:var(--surface);border-radius:24px;border:1px solid var(--line)}
+.ficon{width:64px;height:64px;background:var(--soft);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px;box-shadow:0 0 15px rgba(255,90,60,.1)}
+.feature h3{font-size:20px;margin-bottom:12px;font-weight:700}
+.feature p{color:var(--mut);font-size:15px;line-height:1.6}
+footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px;border-radius:32px 32px 0 0}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.fcol h4{font-size:14px;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8}
-.fcol a{display:block;color:#CBD5E1;text-decoration:none;font-size:14px;margin-bottom:10px;transition:.2s}
-.fcol a:hover{color:#fff}
+.fcol h4{font-size:14px;font-weight:700;margin-bottom:20px;text-transform:uppercase;letter-spacing:.05em;color:#94A3B8}
+.fcol a{display:block;color:#CBD5E1;text-decoration:none;font-size:15px;margin-bottom:12px;transition:.2s}
+.fcol a:hover{color:var(--coral)}
 .copy{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;font-size:13px;color:#64748B;text-align:center}
 @media(max-width:768px){
-.map-hero{height:50vh}
-.search-panel{bottom:-30px;padding:16px}
+.hero-map{height:50vh;padding-bottom:20px}
+.search-panel{margin-top:-40px;padding:20px}
 .search-row{flex-direction:column}
 .footer-grid{grid-template-columns:1fr 1fr}
 .actions .btn.ghost{display:none}
@@ -77,11 +80,16 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px}
 </div>
 </div></header>
 
-<div class="map-hero">
-<img src="https://images.unsplash.com/photo-1596327032568-1b47ea5ef223?q=80&w=2070&auto=format&fit=crop" alt="Екатеринбург карта" class="map-bg">
-<div class="pin" style="top:30%;left:20%"><span>👩</span></div>
-<div class="pin" style="top:50%;left:60%"><span>🧔</span></div>
-<div class="pin" style="top:70%;left:30%"><span>👨</span></div>
+<div class="hero-map">
+<div class="grid-lines"></div>
+<!-- Пины хостов -->
+<div class="pin" style="top:25%;left:20%"><span>👩</span></div>
+<div class="pin" style="top:45%;left:65%;animation-delay:.5s"><span>🧔</span></div>
+<div class="pin" style="top:60%;left:35%;animation-delay:1s"><span>👨</span></div>
+<div class="pin" style="top:30%;left:80%;animation-delay:1.5s"><span>👵</span></div>
+</div>
+
+<section class="section"><div class="wrap">
 <div class="search-panel">
 <div class="tabs">
 <div class="tab active">Компаньон</div>
@@ -96,12 +104,12 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px}
 <label>Когда?</label>
 <input type="text" placeholder="Сегодня вечером">
 </div>
-<button class="btn" style="height:56px;border-radius:12px">Найти</button>
+<button class="btn" style="height:56px;border-radius:12px;width:100%">Найти</button>
 </div>
 </div>
-</div>
+</div></section>
 
-<section class="section"><div class="wrap">
+<section class="section" style="padding-top:20px"><div class="wrap">
 <h2>Хосты рядом с тобой</h2>
 <div class="hosts-grid">
 <div class="hcard">
@@ -134,7 +142,7 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px}
 </div>
 </div></section>
 
-<section class="section" style="background:var(--bg);padding-top:40px"><div class="wrap">
+<section class="section"><div class="wrap">
 <div class="features">
 <div class="feature">
 <div class="ficon">🛡</div>
@@ -158,7 +166,7 @@ footer{background:var(--ink);color:#fff;padding:60px 0 30px;margin-top:80px}
 <div class="footer-grid">
 <div class="fcol">
 <a class="logo" href="#" style="color:#fff;margin-bottom:16px">Плюс Один<i>+1</i></a>
-<p style="color:#94A3B8;font-size:14px;line-height:1.6">Сервис платонических компаньонов. Найди своего человека для любых планов.</p>
+<p style="color:#94A3B8;font-size:15px;line-height:1.6">Сервис платонических компаньонов. Найди своего человека для любых планов.</p>
 </div>
 <div class="fcol">
 <h4>Компания</h4>
